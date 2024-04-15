@@ -1,0 +1,19 @@
+.square {
+  background: steelblue;
+  border-radius: 30px;
+  width: 150px;
+  height: 150px;
+  position: absolute;
+  top: calc(50% - 150px / 2);
+  left: calc(50% - 150px / 2);
+}
+
+.cirle {
+  background: gray;
+  border-radius: 99px;
+  width: 150px;
+  height: 150px;
+  position: absolute;
+  top: calc(50% - 150px / 2);
+  left: calc(50% - 150px / 2);
+}
