@@ -1,10 +1,17 @@
-import { motion } from 'framer-motion';
-import './style.css';
-import { useState } from 'react';
-import { usezIndexStore } from '../hooks/store.hook';
+import { motion } from "framer-motion";
+import { useState } from "react";
+import { usezIndexStore } from "../hooks/store.hook";
+import "./style.css";
 
-export default function DragDiv(props: { shape: 'square' | 'cirle' }) {
-  const { shape } = props;
+export default function DragDiv(
+  props: Readonly<{
+    shape: "square" | "cirle";
+    color: string;
+    top: string;
+    left: string;
+  }>
+) {
+  const { shape, color, top, left } = props;
   const { zIndex, increase } = usezIndexStore();
 
   const [currentZIndex, setCurrentZIndex] = useState(0);
@@ -12,14 +19,17 @@ export default function DragDiv(props: { shape: 'square' | 'cirle' }) {
     <motion.div
       style={{
         zIndex: currentZIndex,
+        background: color,
+        top: top,
+        left: left,
       }}
       drag
       className={shape}
       dragMomentum={false}
       whileTap={{ scale: 1.2 }}
       onTapStart={() => {
-        setCurrentZIndex(zIndex + 10);
-        increase(10);
+        setCurrentZIndex(zIndex + 1);
+        increase(1);
       }}
     />
   );
